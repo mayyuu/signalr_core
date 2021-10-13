@@ -423,12 +423,14 @@ class HubConnection {
       _logger!(LogLevel.information,
           'Reconnect attempt number $previousReconnectAttempts will start in $nextRetryDelay ms.');
 
-      await Future(() {
+      /*await Future(() {
         var completer = Completer();
         _reconnectDelayHandle = Timer(Duration(milliseconds: nextRetryDelay!),
             () => completer.complete());
         return completer.future;
-      });
+      });*/
+      await Future.delayed(
+          Duration(milliseconds: nextRetryDelay));
       _reconnectDelayHandle = null;
 
       if (_connectionState == null ||
