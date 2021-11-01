@@ -43,7 +43,7 @@ class HubConnectionBuilder {
       reconnectPolicy = DefaultReconnectPolicy();
     } else if (retryDelaysOrReconnectPolicy is List) {
       reconnectPolicy = DefaultReconnectPolicy(
-        retryDelays: retryDelaysOrReconnectPolicy as List<int>,
+        retryDelays: retryDelaysOrReconnectPolicy as List<int?>,
       );
     } else if (retryDelaysOrReconnectPolicy is RetryPolicy) {
       reconnectPolicy = retryDelaysOrReconnectPolicy;
